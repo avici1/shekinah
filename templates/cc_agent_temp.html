@@ -1,0 +1,734 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Welcome To Shekinah</title>
+    <!-- Favicon-->
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link href="{% static 'plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css' %}" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"
+          type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="{% static 'plugins/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="{% static 'plugins/node-waves/waves.css' %}" rel="stylesheet"/>
+
+    <!-- Animation Css -->
+    <link href="{% static 'plugins/animate-css/animate.css' %}" rel="stylesheet"/>
+
+    <!-- Morris Chart Css-->
+    <link href="{% static 'plugins/morrisjs/morris.css' %}" rel="stylesheet"/>
+    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css' %}" rel="stylesheet"/>
+
+    <!-- Custom Css -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="{% static 'css/themes/theme-green.css' %}" rel="stylesheet"/>
+</head>
+<body class="theme-green" style="background-color: white">
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="preloader">
+            <div class="spinner-layer pl-cyan">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <p>Please wait...</p>
+    </div>
+</div>
+<div class="search-bar">
+    <div class="search-icon">
+        <i class="material-icons">search</i>
+    </div>
+    <input type="text" placeholder="START FARMERS HERE">
+    <div class="close-search">
+        <i class="material-icons">close</i>
+    </div>
+</div>
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse"
+               data-target="#navbar-collapse" aria-expanded="false"></a>
+            <a href="javascript:void(0);" class="bars"></a>
+            <a class="navbar-brand" href="index.html">Shekinah</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- Call Search -->
+                <li><a href="javascript:void(0);" class="js-search" data-close="true"><i
+                        class="material-icons">search</i></a></li>
+                <!-- #END# Call Search -->
+                <!-- Notifications -->
+
+                <!-- #END# Notifications -->
+                <!-- Tasks -->
+
+                <!-- #END# Tasks -->
+                <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i
+                        class="material-icons">more_vert</i></a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<section>
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+        <!-- User Info -->
+        <div class="user-info">
+            <div class="image">
+                <img src="{% static 'images/user.png' %}" width="48" height="48" alt="User"/>
+            </div>
+            <div class="info-container">
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Alain Mugisha</div>
+                <div class="email">alain.mugisha@shekinah.com</div>
+
+            </div>
+        </div>
+        <!-- #User Info -->
+        <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+                <li class="header">MAIN NAVIGATION</li>
+                <li class="active">
+                    <a href="index.html">
+                        <i class="material-icons">home</i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="material-icons">help</i>
+                        <span>Help</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="pages/helper-classes.html">
+                        <i class="material-icons">input</i>
+                        <span>Log out</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">settings</i>
+                        <span>Account</span>
+                    </a>
+
+                </li>
+            </ul>
+        </div>
+        <!-- #Menu -->
+        <!-- Footer -->
+        <div class="legal">
+            <div class="copyright">
+                &copy; 2019 <a href="javascript:void(0);">Shekinah - Powered by Huzax</a>.
+            </div>
+            <div class="version">
+                <b>Version: </b> 1.0.1
+            </div>
+        </div>
+        <!-- #Footer -->
+    </aside>
+    <!-- #END# Left Sidebar -->
+    <!-- Right Sidebar -->
+
+    <!-- #END# Right Sidebar -->
+</section>
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>Collection center agent view</h2>
+        </div>
+
+        <!-- Widgets -->
+        <div class="row clearfix">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-pink hover-zoom-effect">
+                    <div class="icon">
+                        <i class="material-icons">account_circle</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">Registered Farmers</div>
+                        <div class="number count-to" data-from="0" data-to="15" data-speed="15"
+                             data-fresh-interval="20"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-cyan hover-zoom-effect">
+                    <div class="icon">
+                        <i class="material-icons">insert_chart</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">Last month procuduction (kg)</div>
+                        <div class="number count-to" data-from="0" data-to="50" data-speed="1000"
+                             data-fresh-interval="20"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-light-green hover-zoom-effect">
+                    <div class="icon">
+                        <i class="material-icons">swap_horiz</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">ongoing tasks</div>
+                        <div class="number count-to" data-from="0" data-to="3" data-speed="1000"
+                             data-fresh-interval="20"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="body bg-red" style="height: 150px" data-toggle="modal" data-target="#orderModal">
+                        <div class="modal-body">
+                            Click here To check new orders
+                            and accepts/rejects them.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="body bg-deep-orange" style="height: 150px" data-toggle="modal"
+                         data-target="#produceModal">
+                        <div class="modal-body">
+                            Click here To add new produce
+                            from farmers
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--orders-->
+            <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" style="margin: 0 auto; float:none;">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Approve or reject orders
+                            </h2>
+
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                    <thead>
+                                    <tr>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1"
+                                            rowspan="1" colspan="1" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending" style="width: 142px;">
+                                            Crop type
+                                        </th>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1"
+                                            rowspan="1" colspan="1" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending" style="width: 142px;">
+                                            Quantity
+                                        </th>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1"
+                                            rowspan="1" colspan="1" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending" style="width: 142px;">
+                                            Approve
+                                        </th>
+
+                                    </tr>
+                                    </thead>
+                                    <tfoot>
+                                    <tr>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1"
+                                            rowspan="1" colspan="1" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending" style="width: 142px;">
+                                            Crop type
+                                        </th>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1"
+                                            rowspan="1" colspan="1" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending" style="width: 142px;">
+                                            Quantity
+                                        </th>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1"
+                                            rowspan="1" colspan="1" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending" style="width: 142px;">
+                                            Approve
+                                        </th>
+
+                                    </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <tr>
+                                        <td>Type 1</td>
+                                        <td>10</td>
+                                        <td>
+
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Approve</option>
+                                                <option>Reject</option>
+
+                                            </select>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>Type 2</td>
+                                        <td>12</td>
+                                        <td>
+
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Approve</option>
+                                                <option>Reject</option>
+
+                                            </select>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>Type 3</td>
+                                        <td>3</td>
+                                        <td>
+
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Approve</option>
+                                                <option>Reject</option>
+
+                                            </select>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>Type 4</td>
+                                        <td>10</td>
+                                        <td>
+
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Approve</option>
+                                                <option>Reject</option>
+
+                                            </select>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>Type 5</td>
+                                        <td>5</td>
+                                        <td>
+
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Approve</option>
+                                                <option>Reject</option>
+
+                                            </select>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>Type 6</td>
+                                        <td>6</td>
+                                        <td>
+
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Approve</option>
+                                                <option>Reject</option>
+
+                                            </select>
+                                        </td>
+
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal fade" id="produceModal" tabindex="-1" role="dialog" style="margin: 0 auto; float:none;">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Fill in Produce form
+                            </h2>
+
+                        </div>
+                        <div class="modal-body">
+                            <form method="post">
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Crop type</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Crop 1</option>
+                                        <option>Crop 2</option>
+                                        <option>Crop 3</option>
+
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="email_address">National ID </label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="Text" id="" class="form-control"
+                                                   placeholder="Enter His/Her National Id">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="email_address">Qty </label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="Text" id="" class="form-control"
+                                                   placeholder="Enter brought quantity">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <button type="submit" class="btn btn-primary m-t-15 waves-effect">Register</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="body bg-success" style="height: 150px" data-toggle="modal"
+                         data-target="#groupModal">
+                        <div class="modal-body">
+                            Click here assign a task to a group
+                            of women
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="body bg-blue" style="height: 150px" data-toggle="modal"
+                         data-target="#farmerModal">
+                        <div class="modal-body">
+                            Click here to register farmers
+                            in this collection center
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal fade" id="groupModal" tabindex="-1" role="dialog" style="margin: 0 auto; float:none;">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Assign task to group
+                            </h2>
+
+                        </div>
+                        <div class="modal-body">
+                            <form method="post">
+
+                                <div class="form-group">
+
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Task #1<</option>
+                                        <option>Task #2</option>
+                                        <option>Task #3</option>
+                                        <option>Task #4</option>
+                                        <option>Task #5</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Crop Type</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Type #1</option>
+                                        <option>Type #2</option>
+                                        <option>Type #3</option>
+
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Group</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Group 1</option>
+                                        <option>Group 2</option>
+                                        <option>Group 3</option>
+
+                                    </select>
+                                </div>
+
+
+                                <button type="submit" class="btn btn-primary m-t-15 waves-effect">Save</button>
+                            </form>
+                        </div>
+                          <div class="modal-footer">
+
+                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal fade" id="farmerModal" tabindex="-1" role="dialog" style="margin: 0 auto; float:none;">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Register a farmer
+                            </h2>
+
+                        </div>
+                        <div class="modal-body">
+                            <form method="post">
+
+                                <div class="form-group col-md-3">
+                                    <label for="email_address">National ID </label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="Text" id="" class="form-control"
+                                                   placeholder="Enter His/Her National Id">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="email_address">Names </label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="Text" id="" class="form-control"
+                                                   placeholder="Enter brought quantity">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Crop type</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Crop 1</option>
+                                        <option>Crop 2</option>
+                                        <option>Crop 3</option>
+
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary m-t-15 waves-effect">Register</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+<!-- Jquery Core Js -->
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+
+<!-- Bootstrap Core Js -->
+<script src="{% static 'plugins/bootstrap/js/bootstrap.js' %}"></script>
+
+<!-- Select Plugin Js -->
+<script src="{% static 'plugins/bootstrap-select/js/bootstrap-select.js' %}"></script>
+
+<!-- Slimscroll Plugin Js -->
+<script src="{% static 'plugins/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+
+<!-- Waves Effect Plugin Js -->
+<script src="{% static 'plugins/node-waves/waves.js' %}"></script>
+
+<!-- Jquery CountTo Plugin Js -->
+<script src="{% static 'plugins/jquery-countto/jquery.countTo.js' %}"></script>
+
+<!-- Morris Plugin Js -->
+<script src="{% static 'plugins/raphael/raphael.min.js' %}"></script>
+<script src="{% static 'plugins/morrisjs/morris.js' %}"></script>
+
+<!-- ChartJs -->
+<script src="{% static 'plugins/chartjs/Chart.bundle.js' %}"></script>
+
+<!-- Flot Charts Plugin Js -->
+<script src="{% static 'plugins/flot-charts/jquery.flot.js' %}"></script>
+<script src="{% static 'plugins/flot-charts/jquery.flot.resize.js' %}"></script>
+<script src="{% static 'plugins/flot-charts/jquery.flot.pie.js' %}"></script>
+<script src="{% static 'plugins/flot-charts/jquery.flot.categories.js' %}"></script>
+<script src="{% static 'plugins/flot-charts/jquery.flot.time.js' %}"></script>
+
+<!-- Sparkline Chart Plugin Js -->
+<script src="{% static 'plugins/jquery-sparkline/jquery.sparkline.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<!-- Custom Js -->
+<script src="{% static 'js/admin.js' %}"></script>
+<script src="{% static 'js/pages/index.js' %}"></script>
+<script src="{% static 'plugins/jquery-datatable/jquery.dataTables.js' %}"></script>
+<script src="{% static 'plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js' %}"></script>
+<script src="{% static 'plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.flash.min.js' %}"></script>
+<script src="{% static 'plugins/jquery-datatable/extensions/export/jszip.min.js' %}"></script>
+<script src="{% static 'plugins/jquery-datatable/extensions/export/pdfmake.min.js' %}"></script>
+<script src="{% static 'plugins/jquery-datatable/extensions/export/vfs_fonts.js' %}"></script>
+<script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.html5.min.js' %}"></script>
+<script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.print.min.js' %}"></script>
+<script src="{% static 'js/admin.js' %}"></script>
+<script src="{% static 'js/pages/tables/jquery-datatable.js' %}"></script>
+<!-- Demo Js -->
+<script src="{% static 'js/demo.js' %}"></script>
+<script>
+    var ctx = document.getElementById('bar_chart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['2016', '2017', '2018', '2019'],
+            datasets: [{
+                label: 'Demand in KG',
+                data: [120, 90, 130, 110],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+<script>
+    var ctx = document.getElementById('bud_chart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['2016', '2017', '2018', '2019'],
+            datasets: [{
+                label: 'Budget in Millions',
+                data: [40, 47, 53, 57],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+<script>
+    var ctx = document.getElementById('sh_chart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['2016', '2017', '2018', '2019'],
+            datasets: [{
+                label: 'Stakeholder commitment',
+                data: [60, 65, 67, 70],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
